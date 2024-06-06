@@ -17,7 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from inventory import views
+from inventory.views import user_login
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('login/', user_login, name="login"),
+    path("product/add_product", views.add_product, name="add_product"),
+    path("product/<int:pk>/update/", views.update_product, name="update_product"),
+    path("product/search_product", views.search_product, name="search_product"),
+    path("supplier/add_supplier/", views.add_supplier, name="add_supplier"),
 ]
